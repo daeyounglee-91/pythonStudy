@@ -554,14 +554,195 @@ Quiz) 표준 체중을 구하는 프로그램을 작성하시오
 키 175cm 남자의 표준 체중은 67.38kg 입니다.
 '''
 
-def std_weight(height, gender):
-    if gender == "남자":
-        return height*height*22
-    else:
-        return height*height*21
+# def std_weight(height, gender):
+#     if gender == "남자":
+#         return height*height*22
+#     else:
+#         return height*height*21
 
-height = 175
-gender = "남자"
-weight = round(std_weight(height / 100, gender),2)
+# height = 175
+# gender = "남자"
+# weight = round(std_weight(height / 100, gender),2)
 
-print("키 {0}cm {1}의 표준 체중은 {2}kg 입니다.".format(height, gender, weight))
+# print("키 {0}cm {1}의 표준 체중은 {2}kg 입니다.".format(height, gender, weight))
+
+# 표준 입출력
+
+# print("python", "java", sep = ",", end = "?")
+# print("무엇이 더 재미있을까요?")
+
+# import sys
+# print("python", "java", file =sys.stdout)
+# print("python", "java", file =sys.stderr)
+
+# scores = {"수학":0, "영어":50,"코딩":100}
+# for subject, score in scores.items():
+#     print(subject.ljust(8), str(score).rjust(4), sep=":")  #왼쪽으로 정렬(8자리의 공간 확보후)
+
+# for num in range(1,21):
+#     print("대기번호 : " + str(num).zfill(3))
+
+# answer = input("아무 값이나 입력하세요 : ")
+# print(type(answer))
+# print("입력하신 값은 " + answer + "입니다")
+
+# 출력 포멧
+# print("{0: >10}".format(500))
+# print("{0: >10}".format(-500))
+# print("{0: >+10}".format(500))
+# print("{0: >+10}".format(-500))
+
+# print("{0:_<+10}".format(500))
+
+# print("{0:,}".format(100000000000000))
+# print("{0:+,}".format(100000000000000))
+# print("{0:+,}".format(-100000000000000))
+# print("{0:^<+30,}".format(100000000000000))
+
+# print("{0:f}".format(5/3))
+# print("{0:.2f}".format(5/3))
+
+# 파일 입충력
+# scor_file = open("score.txt","w",encoding="utf8") #write
+# print("수학 : 0",file=scor_file)
+# print("영어 : 50",file=scor_file)
+# scor_file.close()
+
+# scor_file = open("score.txt","a",encoding="utf8")   # append
+# scor_file.write("과학 : 80")
+# scor_file.write("\n코딩 : 80")
+# scor_file.close()
+
+# scor_file = open("score.txt","r",encoding="utf8")   # read
+# print(scor_file.read())
+# scor_file.close()
+
+# scor_file = open("score.txt","r",encoding="utf8")   # read
+# print(scor_file.readline(),end="") # 한줄 읽고 커서 다음줄
+# print(scor_file.readline(),end="")
+# print(scor_file.readline(),end="")
+# print(scor_file.readline(),end="")
+# scor_file.close()
+
+# scor_file = open("score.txt","r",encoding="utf8")   # read
+# while True:
+#     line = scor_file.readline();
+#     if not line:
+#         break
+#     print(line,end="") 
+# scor_file.close()
+
+# score_file = open("score.txt","r",encoding="utf8")
+# lines =  score_file.readlines()
+# for line in lines:
+#     print(line,end="") 
+# score_file.close()
+
+# pickle
+
+# import pickle
+# profile_file = open("profile.pickle","wb")  # wb의 b는 바이너리
+# profile = {"이름": "박명수", "나이":30, "취미":["축구","골프","야구"]}
+# print(profile)
+
+# pickle.dump(profile, profile_file)
+# profile_file.close()
+
+# profile_file = open("profile.pickle","rb")
+# profile = pickle.load(profile_file)
+# print(profile)
+# profile_file.close()
+
+# with open("profile.pickle","rb") as profile_file:   # file close 자동으로 함
+#     print(pickle.load(profile_file))
+
+# with open("study.txt","w",encoding="utf8") as study_file:
+#     study_file.write("파이썬을 공부하고 있어요")
+
+# with open("study.txt","r",encoding="utf8") as study_file:
+#     print(study_file.read())
+
+# Quiz 7
+'''
+Quiz) 당신의 회사에서는 매주 1회 작성해야 하는 보고서가 있습니다.
+보고서는 항상 아래와 같은 형태로 출력되어야 합니다.
+ 
+- X 주차 주간보고 -
+부서 : 
+이름 : 
+업무 요약 : 
+
+1주차부터 50주차까지의 보고서 파일을 만드는 프로그램을 작성하시오.
+조건 : 파일명은 '1주차.txt', '2주차.txt', ... 와 같이 만듭니다.
+'''
+
+# for i in range(1,51):
+#     with open(str(i) + "주차.txt", "w",encoding="utf8") as report_file:
+#         report_file.write("- {0} 주차 주간보고 -".format(i))
+#         report_file.write("\n부서 :")
+#         report_file.write("\n이름 :")
+#         report_file.write("\n업무 요약 :")
+
+# name = "마린"
+# hp = 40
+# damage = 5
+# print("{} 유닛이 생성되었습니다.".format(name))
+# print("체력 {0}, 공격력 {1}\n".format(hp,damage))
+
+# tank_name = "탱크"
+# tank_hp = 150
+# tank_damage = 35
+# print("{} 유닛이 생성되었습니다.".format(tank_name))
+# print("체력 {0}, 공격력 {1}\n".format(tank_hp,tank_damage))
+
+# def attack(name, location, damage):
+#     print("{0} : {1} 방향으로 적군을 공격합니다. [공격력 {2}]"\
+#         .format(name,location,damage))
+
+# attack(name,"1시",damage)
+# attack(tank_name,"12시",tank_damage)
+
+# class Unit:
+#     def __init__(self, name, hp, damage):       # 생성자
+#         self.name = name
+#         self.hp = hp
+#         self.damage = damage
+#         print("{} 유닛이 생성되었습니다.".format(self.name))
+#         print("체력 {0}, 공격력 {1}".format(self.hp,self.damage))
+
+# # marine1 = Unit("마린",40,5)
+# # marine2 = Unit("마린",40,5)
+# # tank = Unit("텡크",150,35)
+
+# # wraith1 = Unit("레이스",80,5)
+# # print("유닛 이름 : {0}, 공격력 {1}".format(wraith1.name,wraith1.damage))
+
+# # wraith2 = Unit("빼맛은 레이스",80,5)
+# # wraith2.clocking = True
+
+# # if wraith2.clocking == True:
+# #     print("{0} 은 현재 클로킹 상태입니다.".format(wraith2.name))
+
+    
+# class AttackUnit:
+#     def __init__(self, name, hp, damage):       # 생성자
+#         self.name = name
+#         self.hp = hp
+#         self.damage = damage
+
+#     def attack(self, location):
+#         print("{0} : {1} 방향으로 적군을 공격합니다. [공격력 {2}]"\
+#             .format(self.name,location,self.damage))
+
+#     def damaged(self, damage):
+#         print("{0} : {1} 데미지를 입었습니다.".format(self.name,damage))
+#         self.hp -= damage
+#         print("{0} : 현재 체력은 {1} 입니다.".format(self.name,self.hp))
+
+#         if self.hp <= 0:
+#             print("{0} : 파괴되었습니다.".format(self.name))
+
+# firebat1 = AttackUnit("파이어 뱃", 50, 16)
+# firebat1.attack("5시")
+# firebat1.damaged(25)
+# firebat1.damaged(25)
