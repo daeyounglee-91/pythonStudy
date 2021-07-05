@@ -746,3 +746,353 @@ Quiz) 당신의 회사에서는 매주 1회 작성해야 하는 보고서가 있
 # firebat1.attack("5시")
 # firebat1.damaged(25)
 # firebat1.damaged(25)
+
+# 상속
+
+# class Unit:
+#     def __init__(self, name, hp):
+#         self.name = name
+#         self.hp = hp
+
+    
+# class AttackUnit(Unit):
+#     def __init__(self, name, hp, damage):
+#         Unit.__init__(self,name,hp)
+#         self.damage = damage
+
+#     def attack(self, location):
+#         print("{0} : {1} 방향으로 적군을 공격합니다. [공격력 {2}]"\
+#             .format(self.name,location,self.damage))
+
+#     def damaged(self, damage):
+#         print("{0} : {1} 데미지를 입었습니다.".format(self.name,damage))
+#         self.hp -= damage
+#         print("{0} : 현재 체력은 {1} 입니다.".format(self.name,self.hp))
+
+#         if self.hp <= 0:
+#             print("{0} : 파괴되었습니다.".format(self.name))
+
+# firebat1 = AttackUnit("파이어 뱃", 50, 16)
+# firebat1.attack("5시")
+# firebat1.damaged(25)
+# firebat1.damaged(25)
+
+# 다중 상속
+
+# from random import *
+
+# class Unit:
+#     def __init__(self, name, hp, speed):
+#         self.name = name
+#         self.hp = hp
+#         self.speed = speed
+#         print("{0} 유닛이 생성되었습니다".format(name))
+
+#     def move(self, location):
+#         print("[지상유닛 이동]")
+#         print("{0} : {1} 방향으로 이동합니다. [속도 {2}]"\
+#             .format(self.name,location,self.speed))
+    
+#     def damaged(self, damage):
+#         print("{0} : {1} 데미지를 입었습니다.".format(self.name,damage))
+#         self.hp -= damage
+#         print("{0} : 현재 체력은 {1} 입니다.".format(self.name,self.hp))
+
+#         if self.hp <= 0:
+#             print("{0} : 파괴되었습니다.".format(self.name))
+ 
+# class AttackUnit(Unit):
+#     def __init__(self, name, hp, speed, damage):
+#         Unit.__init__(self,name,hp,speed)
+#         self.damage = damage
+
+#     def attack(self, location):
+#         print("{0} : {1} 방향으로 적군을 공격합니다. [공격력 {2}]"\
+#             .format(self.name,location,self.damage))
+
+# class Flyable:
+#     def __init__(self, flying_speed):
+#         self.flying_speed = flying_speed
+
+#     def fly(self, name, location):
+#         print("{0} : {1} 방향으로 오로 닐이깁ㄴ;디. [속도 {2}]"\
+#             .format(self.name,location,self.flying_speed))
+
+# class FlyableAttackUnit(AttackUnit,Flyable):
+#     def __init__(self, name, hp, damage, flying_speed):
+#         AttackUnit.__init__(self, name, hp, 0,damage)
+#         Flyable.__init__(self,flying_speed)
+
+#     def fly(self, name, location):
+#         print("{0} : {1} 방향으로 오로 날아갑니다. [속도 {2}]"\
+#             .format(self.name,location,self.flying_speed))
+            
+#     def move(self, location):
+#         print("[공중유닛 이동]")
+#         self.fly(self.name, location)
+
+# class Marine(AttackUnit):
+#     def __init__(self):
+#         AttackUnit.__init__(self, "마린",40,1,5)
+
+#     def stimpack(self):
+#         if self.hp > 10:
+#             self.hp -= 10
+#             print("{0} : 스팀팩을 사용합니다. (HP 10 감소)".format(self.name))
+#         else:
+#             print("{0} : 체력이 부족하여 스팀팩을 사용할수 없습니다.".format(self.name))
+
+# class Tank(AttackUnit):
+#     seize_developed = False
+#     def __init__(self):
+#         AttackUnit.__init__(self, "탱크",150,1,35)
+#         self.seize_mode = False
+
+#     def set_seize_mode(self):
+#         if Tank.seize_developed == False:
+#             return
+        
+#         if self.seize_mode == False:
+#             print("{0} : 시즈모드로 전환 합니다.".format(self.name))
+#             self.damage *= 2
+#             self.seize_mode = True
+#         else:
+#             print("{0} : 시즈모드를 헤제 합니다.".format(self.name))
+#             self.damage /= 2
+#             self.seize_mode = False
+
+# class Wraith(FlyableAttackUnit):
+#     def __init__(self):
+#         FlyableAttackUnit.__init__(self,"탱크",80,20,5)
+#         self.clocked = False
+
+#     def clocking(self):
+#         if self.clocked == True:
+#             print("{0} : 클로킹 모드를 헤제 합니다.".format(self.name))
+#             self.clocked = False
+#         else:
+#             print("{0} : 클로킹 모드 설정합니다.".format(self.name))
+#             self.clocked = True
+
+# # vulture = AttackUnit("벌쳐",80,10,20)
+# # battlecruiser = FlyableAttackUnit("배틀크루져",500,25,3)
+
+# # vulture.move("11시")
+# # battlecruiser.fly(battlecruiser.name, "9시")
+# # battlecruiser.move("7시")
+# # # valkyrie.fly(valkyrie.name, "3시")
+
+# # class BuildingUnit(Unit):
+# #     def __init__(self, name, hp, location):
+# #         # Unit.__init__(self,name,hp,0)
+# #         super().__init__(name,hp,0)
+# #         self.location = location
+
+# # supply_depot = BuildingUnit("서플라이 디폿", 500, "7시 ")
+
+# def game_start():
+#     print("[알림] 새로운 게임을 시작합니다.")
+
+# def game_over():
+#     print("player : gg")
+#     print("[player] 님이 게임에서 퇴장하였습니다.")
+
+# game_start()
+
+# m1 = Marine()
+# m2 = Marine()
+# m3 = Marine()
+
+# t1 = Tank()
+
+# w1 = Wraith()
+
+# attack_units = []
+# attack_units.append(m1)
+# attack_units.append(m2)
+# attack_units.append(m3)
+# attack_units.append(t1)
+# attack_units.append(w1)
+
+# for unit in attack_units:
+#     unit.move("1시")
+
+# Tank.seize_developed = True
+# print("[알림] 탱크 시즈 모드 개발이 완료되었습니다.")
+
+# for unit in attack_units:
+#     if isinstance(unit,Marine) == True:
+#         unit.stimpack()
+#     elif isinstance(unit,Tank) == True:
+#         unit.set_seize_mode()
+#     elif isinstance(unit,Wraith) == True:
+#         unit.clocking()
+
+# for unit in attack_units:
+#     unit.attack("1시")
+    
+# for unit in attack_units:
+#     unit.damaged(randint(5,21))
+
+# game_over()
+
+'''
+Quiz) 주어진 코드를 활용하여 부동산 프로그램을 작성하시오.
+
+(출력 예제)
+총 3대의 매물이 있습니다.
+강남 아파트 매매 10억 2010년
+마포 오피스텔 전세 5억 2007년
+송파 빌라 월세 500/50 2000년
+
+[코드]
+class House:
+    # 매물 초기화 : 위치, 건물 종류, 매물 종류, 가격, 준공년도
+    def __init__(self, location, house_type, deal_type, price, completion_year):
+        pass
+
+    # 매물 정보 표시
+    def show_detail(self):
+        pass
+'''
+
+# class House:
+#     # 매물 초기화 : 위치, 건물 종류, 매물 종류, 가격, 준공년도
+#     def __init__(self, location, house_type, deal_type, price, completion_year):
+#         self.location = location
+#         self.house_type = house_type
+#         self.deal_type = deal_type
+#         self.price = price
+#         self.completion_year = completion_year
+
+#     # 매물 정보 표시
+#     def show_detail(self):
+#         print(self.location, self.house_type, self.deal_type, self.price, self.completion_year)
+
+# houses = []
+
+# houses.append(House("강남", "아파트", "매매", "10억", "2010년"))
+# houses.append(House("마포", "오피스텔", "전세", "5억", "2007년"))
+# houses.append(House("송파", "빌라", "월세", "500/50", "2000년"))
+
+# print("총 {0}대의 매물이 있습니다.".format(str(len(houses))))
+
+# for house in houses:
+#     house.show_detail()
+
+
+# 예외 처리
+# try:
+#     print("나누기 전용 계산기입니다")
+#     num1 = int(input("첫번째 숫자를 입력하세요 : "))
+#     num2 = int(input("두번째 숫자를 입력하세요 : "))
+#     print("{0} / {1} = {2}".format(num1,num2,int(num1/num2)))
+# except ValueError:
+#     print("에러 발생")
+# except ZeroDivisionError as err:
+#     print(err)
+# except:
+#     print("알수없는 애러 발생")
+
+# class BigNumberError(Exception):
+#     def __init__(self, msg):
+#         self.msg = msg
+    
+#     def __str__(self):
+#         return self.msg
+
+# try:
+#     print("한 자리수 나누기 전용 계산기입니다")
+#     num1 = int(input("첫번째 숫자를 입력하세요 : "))
+#     num2 = int(input("두번째 숫자를 입력하세요 : "))
+#     if num1 >= 10 or num2 >= 10:
+#         raise BigNumberError("입력값 : {0}, {1}".format(num1, num2))
+#     print("{0} / {1} = {2}".format(num1,num2,int(num1/num2)))
+# except ValueError:
+#     print("에러 발생")
+# except BigNumberError as err:
+#     print("에러 발생 한자리수만 입력하세요")
+#     print(err)
+# finally:
+#     print("계산기를 이용해 주셔서 감사합니다")
+
+'''
+Quiz) 동네에 항상 대기 손님이 있는 맛있는 치킨집이 있습니다.
+대기 손님의 치킨 요리 시간을 줄이고자 자동 주문 시스템을 제작하였습니다.
+시스템 코드를 확인하고 적절한 예외처리 구문을 넣으시오.
+
+조건1 : 1보다 작거나 숫자가 아닌 입력값이 들어올 때는 ValueError 로 처리
+        출력 메세지 : "잘못된 값을 입력하였습니다."
+
+조건2 : 대기 손님이 주문할 수 있는 총 치킨량은 10마리로 한정
+        치킨 소진 시 사용자 정의 에러[SoldOutError]를 발생시키고 프로그램 종료
+        출력 메세지 : "재고가 소진되어 더 이상 주문을 받지 않습니다."
+
+[코드]
+chicken = 10 # 남은 치킨 수
+waiting = 1 # 홀 안에는 현재 만석. 대기번호 1부터 시작
+
+while(True):
+    print("[남은 치킨 : {0}]".format(chicken))
+    order = int(input("치킨 몇 마리 주문하시겠습니까?"))
+    if order > chicken: # 남은 치킨보다 주문량이 많을 때
+        print("재료가 부족합니다.")
+    else:
+        print("[대기번호 {0}] {1} 마리 주문이 완료되었습니다.".format(waiting, order))
+        waiting += 1 # 대기번호 증가
+        chicken -= order # 주문 수 만큼 남은 치킨 감소
+'''
+
+# class SoldOutError(Exception):
+#     def __init__(self):
+#         pass
+
+#     def __str__(self):
+#         return "재고가 소진되어 더 이상 주문을 받지 않습니다"
+        
+# chicken = 10 # 남은 치킨 수
+# waiting = 1 # 홀 안에는 현재 만석. 대기번호 1부터 시작
+
+# while(True):
+#     try:
+#         print("[남은 치킨 : {0}]".format(chicken))
+#         order = int(input("치킨 몇 마리 주문하시겠습니까?"))
+#         if order < 1:
+#             raise ValueError
+#         if order > chicken: # 남은 치킨보다 주문량이 많을 때
+#             print("재료가 부족합니다.")
+#         else:
+#             print("[대기번호 {0}] {1} 마리 주문이 완료되었습니다.".format(waiting, order))
+#             waiting += 1 # 대기번호 증가
+#             chicken -= order # 주문 수 만큼 남은 치킨 감소
+#         if chicken <= 0:
+#             raise SoldOutError()
+#     except ValueError:
+#         print("잘못된 값을 입력하였습니다.")
+#     except SoldOutError as msg:
+#         print(msg)
+#         break
+
+# 모듈
+# import theater_module
+# theater_module.price(3)
+# theater_module.price_morning(4)
+# theater_module.price_soldier(6)
+
+# import theater_module as mv
+# mv.price(3)
+# mv.price_morning(4)
+# mv.price_soldier(6)
+
+# from theater_module import *
+# price(3)
+# price_morning(4)
+# price_soldier(6)
+
+# from theater_module import price, price_morning
+# price(3)
+# price_morning(4)
+
+# from theater_module import price_soldier as ps
+# ps(3)
+
