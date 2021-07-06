@@ -1096,3 +1096,100 @@ while(True):
 # from theater_module import price_soldier as ps
 # ps(3)
 
+# package
+
+# import travel.thailand
+
+# trip_to = travel.thailand.ThailandPackage()
+# trip_to.detatil()
+
+# from travel.thailand import ThailandPackage
+
+# trip_to = ThailandPackage()
+# trip_to.detatil()
+
+# from travel import vietnam
+
+# trip_to = vietnam.VietnamPackage()
+# trip_to.detatil()
+
+# from travel import *
+
+# # # trip_to = vietnam.VietnamPackage()
+# # trip_to = thailand.ThailandPackage()
+# # trip_to.detatil()
+
+# import inspect
+# import random
+# print(inspect.getfile(random))
+# print(inspect.getfile(thailand))
+
+# pip install
+# from bs4 import BeautifulSoup
+# soup = BeautifulSoup("<p>Some<b>bad<i>HTML")
+# print(soup.prettify())
+
+# print(dir())
+# import random # random 모듈 가져다 쓰기
+# print(dir())
+# import pickle # pickle 모듈 가져다 쓰기
+# print(dir())
+
+# lst = [1, 2, 3]
+# print(dir(lst))
+
+# name = "Jim"
+# print(dir(name))
+
+# import glob
+# print(glob.glob("*.py")) # 확장자가 py 인 모든 파일
+
+# import os
+# print(os.getcwd()) # 현재 디렉토리
+
+# import os
+
+# folder = "sample_dir"
+
+# if os.path.exists(folder):
+#     print("이미 존재하는 폴더입니다.")
+#     os.rmdir(folder) # 폴더 삭제
+#     print(folder, "폴더를 삭제하였습니다.") # 삭제 문구 출력
+# else:
+#     os.makedirs(folder)
+#     print(folder, "폴더를 생성하였습니다.")
+
+# import os
+# print(os.listdir())
+
+# import time
+# print(time.localtime())
+
+# import time
+# print(time.strftime("%Y-%m-%d %H:%M:%S")) # 연-월-일 시:분:초
+
+# import datetime
+# print("오늘 날짜는", datetime.date.today())
+
+# import datetime
+# today = datetime.date.today() # 오늘 날짜 저장
+# td = datetime.timedelta(days=100) # 100일 저장
+# print("우리가 만난지 100일은", today + td) # 오늘부터 100일 후
+
+'''
+Quiz) 프로젝트 내에 나만의 시그니처를 남기는 모듈을 만드시오
+
+조건: 모듈 파일명은 byme.py 로 작성
+
+(모듈 사용 예제)
+import byme
+byme.sign()
+
+(출력 예제)
+이 프로그램은 나도코딩에 의해 만들어졌습니다.
+유튜브: http://youtube.com
+이메일: nadocoding@gmail.com
+'''
+
+import byme
+byme.sign()
